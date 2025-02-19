@@ -1,0 +1,288 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2c2c54; /* Dunkleres Lila */
+  color: white;
+}
+
+#content {
+  width: 500px;
+  height: 250px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #5c4d7d; /* Dunkleres Lila */
+  border-radius: 8px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#menu {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+}
+
+#menu-button, #back-button {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+#back-button {
+  display: none;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+#title {
+  text-align: center;
+  margin-top: 5px;
+  font-size: 10px;
+}
+
+#dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 40px; /* Direkt unter dem Menübutton */
+  left: 10px; /* Ganz links ausgerichtet */
+  background-color: #5c4d7d; /* Dunkler Lila Hintergrund für das Menü */
+  border: 1px solid #fff;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  width: 180px; /* Einheitliche Breite für das Menü */
+  flex-direction: column; /* Vertikale Anordnung */
+  padding: 0;
+}
+
+/* FIX: Einheitliches Styling für Dropdown */
+#dropdown-menu button, 
+#dropdown-menu .topic-block {  
+  width: 100%;
+  padding: 10px;
+  background-color: #5c4d7d;
+  border: none;
+  text-align: center; /* Hier von 'left' auf 'center' geändert */
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+
+#dropdown-menu button:hover, 
+#dropdown-menu .topic-block:hover { 
+  background-color: #4a3a63;
+}
+
+
+#main-content {
+  width: 100%; /* Passt sich der Widget-Breite an */
+  height: 200px; /* Einheitliche Höhe ohne Scrollbalken */
+  background-color: #D8A7D8; /* Helllila Hintergrund */
+  overflow: hidden; /* Keine Scrollbalken */
+  padding: 10px; /* Innenabstand für besseren Inhalt */
+  border-radius: 8px; /* Abgerundete Ecken */
+  box-sizing: border-box; /* Innenabstand in die Größe einberechnen */
+}
+
+#learning-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%; /* Voller Bereich */
+  overflow-y: auto; /* Vertikaler Scrollbalken */
+  max-height: 300px; /* Begrenze die Höhe, um den Scrollbereich sichtbar zu machen */
+  padding: 5px;
+  font-size: 10px;
+  background-color: #D8A7D8; /* Helllila Hintergrund */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#learning-content input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+#learning-content button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+#learning-content button:hover {
+    background-color: #0056b3;
+}
+
+#search-section {
+  margin-top: 20px;
+}
+
+#topic-input {
+  padding: 10px;
+  width: 60%;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#search-topic {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#search-topic:hover {
+  background-color: #0056b3;
+}
+
+#topic-result {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: none; /* Ergebnisse werden erst sichtbar, wenn sie geladen sind */
+}
+
+.topic-block {
+  width: 90%; /* Passe die Breite an */
+  padding: 10px;
+  background-color: #5c4d7d;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 10px; /* Lesbare Schriftgröße */
+}
+
+.topic-block.selected {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+.topic-block:hover {
+  background-color: #4a3a63;
+}
+
+.topic-block.dynamisch {
+  border: 2px dashed #fff;
+}
+
+#fixed-topic-container {
+  display: flex;
+  flex-direction: column; /* Kästchen untereinander anordnen */
+  align-items: center; /* Zentrierung der Kästchen */
+  gap: 10px; /* Abstand zwischen den Kästchen */
+  margin-top: 10px;
+}
+
+#fixed-topic-container div {
+  background-color: #D8A7D8;
+  color: black;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  width: 150px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#fixed-topic-container div:hover {
+  background-color: #B08AB0; /* Hover-Effekt für die Kästchen */
+}
+
+/* Lerninhalt-Bearbeitungsliste */
+#content-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+  width: 100%;
+}
+
+#content-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5c4d7d;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 16px; /* Größere Schrift für Lerninhalte */
+  color: white;
+}
+
+/* Buttons nebeneinander zentriert */
+#content-list li span {
+  flex-grow: 1; /* Dehnt den Text aus */
+  text-align: left;
+  padding-right: 10px;
+}
+
+#content-list button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+#content-list button:hover {
+  background-color: #0056b3;
+}
+
+/* "Anzeigen"-Button oben */
+#show-content {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#show-content:hover {
+  background-color: #218838;
+}

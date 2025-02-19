@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Learning Widget</title>
+</head>
+<body>
+    <div id="content">
+        <!-- Menübereich -->
+        <div id="menu">
+            <button id="menu-button" title="Menü öffnen">☰</button>
+            <button id="back-button" title="Zurück zum Menü" style="display: none;">←</button>
+        </div>
+
+        <!-- Titel -->
+        <div id="title">
+            <h1>Learning Widget</h1>
+        </div>
+
+        <!-- Dropdown-Menü -->
+        <div id="dropdown-menu">
+            <button id="add-content" title="Lerninhalt hinzufügen">Lerninhalt hinzufügen</button>
+            <button id="edit-content" title="Lerninhalt bearbeiten">Lerninhalt bearbeiten</button>
+            <button id="search-topic" title="Thema suchen">Thema suchen</button>
+            <button id="login" title="Konto">Konto</button>
+            <button id="settings" title="Einstellungen">Einstellungen</button>
+        </div>
+        
+        <!-- Hauptbereich für Lerninhalt -->
+        <div id="main-content">
+            <div id="learning-content">
+                <!-- Dynamischer Lerninhalt wird hier angezeigt -->
+            </div>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html> 

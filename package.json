@@ -1,0 +1,15 @@
+{
+  "name": "learning_widget",
+  "version": "1.0.0",
+  "description": "A widget for passive learning",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^30.0.9"
+  },
+  "devDependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}
